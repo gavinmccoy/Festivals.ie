@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="location" type="id" />
+    <item name="metroArea" type="id" />
+    <item name="country" type="id" />
+</resources>

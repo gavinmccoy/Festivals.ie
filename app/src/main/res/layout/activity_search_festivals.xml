@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:fitsSystemWindows="true"
+    tools:context=".SearchFestivals">
+    <!-- change for every activity_....xml-->
+
+
+    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:background="#4e87e1" app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/festivals"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:src="@drawable/festivalsicontrans"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/festivals"
+                android:text="@string/festivals"
+                android:textSize="40sp"
+                android:textColor="#ffffff"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+    <!-- change for each activity_....xml -->
+    <include layout="@layout/content_search_festivals" />
+
+</android.support.design.widget.CoordinatorLayout>
