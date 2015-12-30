@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Festivals.ie.iml" filepath="$PROJECT_DIR$/Festivals.ie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Festivals.ie_clone.iml" filepath="$PROJECT_DIR$/Festivals.ie_clone.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

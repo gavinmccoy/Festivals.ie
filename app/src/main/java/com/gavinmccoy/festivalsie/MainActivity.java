@@ -40,70 +40,66 @@ import android.widget.Toast;
 import com.gavinmccoy.festivalsie.JSONParser;
 public class MainActivity extends AppCompatActivity {
 
-
-    // learn2 crack tutorial
     ListView list;
-    TextView ver;
     TextView name;
-    TextView api;
     Button Btngetdata;
     ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();
 
-    //URL to get JSON Array
-    private static String url = "http://api.learn2crack.com/android/jsonos/";
-
     //JSON Node Names
-    private static final String TAG_OS = "android";
-    private static final String TAG_VER = "ver";
-    private static final String TAG_NAME = "name";
-    private static final String TAG_API = "api";
+    //private static final String TAG_NAME = "name";
 
-    JSONArray android = null;
+
+    JSONObject android = null;
 
 
     //JSON Node Names
-    private static final String TAG_RESULTSPAGE = "resultsPage";
-    private static final String TAG_RESULTS = "results";
-    private static final String TAG_EVENTS = "event";
-    private static final String TAG_ID = "id";
-    private static final String TAG_TYPE = "type";
-    private static final String TAG_URI = "uri";
-    private static final String TAG_DISPLAYNAME = "displayName";
-    private static final String TAG_START = "start";
-    private static final String TAG_START_TIME = "time";
-    private static final String TAG_START_DATE = "date";
-    private static final String TAG_PERFORMANCE = "performance";
-    private static final String TAG_PERFORMANCE_NAME = "displayName";
-    private static final String TAG_LOCATION = "location";
-    private static final String TAG_LOCATION_CITY = "city";
-    private static final String TAG_VENUE = "venue";
-    private static final String TAG_VENUE_NAME = "displayName";
-    private static final String TAG_STATUS = "status";
-    private static final String TAG_EVENT_NAME = "eventName";
-    private static final String TAG_PRICE = "billingIndex";
-    private static final String TAG_LONGITUDE = "lng";
-    private static final String TAG_LATITUDE = "lat";
-
-    ArrayList<HashMap<String, String>> resultsPageList;
-
-//    ListView list;
-
-    TextView displayName, id;
-
-    JSONArray events = null;
-    // Hashmap for ListView
-    ArrayList<HashMap<String, String>> eventList;
-    private ProgressDialog pDialog;
-    // private NavigationDrawerFragment mNavigationDrawerFragment;
-    private CharSequence mTitle;
-
-    // URL for Songkick gigs in Dublin
-    // private static String url = "http://api.songkick.com/api/3.0/metro_areas/29314/calendar.json?apikey=pSzVjIdFw6u0LfEC";
-
-
-    // DUBLIN GPS Coordinates
-//    private static final String DUB_LAT = "53.1691308";
-//    private static final String DUB_LONG = "-6.8107381";
+    public static final String url="http://api.songkick.com/api/3.0/metro_areas/29314/calendar.json?apikey=pSzVjIdFw6u0LfEC";
+    public static final String TAG_RESULTSPAGE="resultsPage";
+    public static final String TAG_PERPAGE="perPage";
+    public static final String TAG_PAGE="page";
+    public static final String TAG_TOTALENTRIES="totalEntries";
+    public static final String TAG_RESULTS="results";
+    public static final String TAG_EVENT="event";
+    public static final String TAG_VENUE="venue";
+    public static final String TAG_LNG="lng";
+    public static final String TAG_DISPLAYNAME="displayName";
+    public static final String TAG_METROAREA="metroArea";
+    public static final String TAG_COUNTRY="country";
+    public static final String TAG_COUNTRY_OBJ_DISPLAYNAME="displayName";
+    public static final String TAG_METROAREA_OBJ_DISPLAYNAME="displayName";
+    public static final String TAG_ID="id";
+    public static final String TAG_URI="uri";
+    public static final String TAG_VENUE_OBJ_ID="id";
+    public static final String TAG_VENUE_OBJ_URI="uri";
+    public static final String TAG_LAT="lat";
+    public static final String TAG_PERFORMANCE="performance";
+    public static final String TAG_ARTIST="artist";
+    public static final String TAG_IDENTIFIER="identifier";
+    public static final String TAG_MBID="mbid";
+    public static final String TAG_HREF="href";
+    public static final String TAG_ARTIST_OBJ_DISPLAYNAME="displayName";
+    public static final String TAG_ARTIST_OBJ_ID="id";
+    public static final String TAG_ARTIST_OBJ_URI="uri";
+    public static final String TAG_PERFORMANCE_OBJ_DISPLAYNAME="displayName";
+    public static final String TAG_BILLINGINDEX="billingIndex";
+    public static final String TAG_PERFORMANCE_OBJ_ID="id";
+    public static final String TAG_BILLING="billing";
+    public static final String TAG_EVENT_OBJ_DISPLAYNAME="displayName";
+    public static final String TAG_POPULARITY="popularity";
+    public static final String TAG_START="start";
+    public static final String TAG_DATE="date";
+    public static final String TAG_DATETIME="datetime";
+    public static final String TAG_TIME="time";
+    public static final String TAG_AGERESTRICTION="ageRestriction";
+    public static final String TAG_LOCATION="location";
+    public static final String TAG_LOCATION_OBJ_LNG="lng";
+    public static final String TAG_CITY="city";
+    public static final String TAG_LOCATION_OBJ_LAT="lat";
+    public static final String TAG_EVENT_OBJ_ID="id";
+    public static final String TAG_TYPE="type";
+    public static final String TAG_EVENT_OBJ_URI="uri";
+    public static final String TAG_STATUS="status";
+    public static final String TAG_RESULTSPAGE_OBJ_STATUS="status";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,14 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        resultsPageList = new ArrayList<HashMap<String, String>>();
-//
-//        eventList = new ArrayList<HashMap<String, String>>();
-//        // Keep an eye on this line!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//        ListView listView = getListView();
-//
-//        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-//        new GetEvents().execute();
     }
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
@@ -139,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            ver = (TextView) findViewById(R.id.vers);
+            //ver = (TextView) findViewById(R.id.vers);
             name = (TextView) findViewById(R.id.name);
-            api = (TextView) findViewById(R.id.api);
+            //api = (TextView) findViewById(R.id.api);
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Getting Data ...");
             pDialog.setIndeterminate(false);
@@ -156,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             JSONParser jParser = new JSONParser();
 
             // Getting JSON from URL
-            JSONObject json = jParser.getJSONFromUrl(url);
+            JSONObject json = jParser.getJSONFromUrlByGet(url);
             return json;
         }
 
@@ -165,237 +153,172 @@ public class MainActivity extends AppCompatActivity {
             pDialog.dismiss();
             try {
                 // Getting JSON Array from URL
-                android = json.getJSONArray(TAG_OS);
-                for (int i = 0; i < android.length(); i++) {
-                    JSONObject c = android.getJSONObject(i);
+                JSONObject resultsPage_obj = json.getJSONObject(TAG_RESULTSPAGE);
 
-                    // Storing  JSON item in a Variable
-                    String ver = c.getString(TAG_VER);
-                    String name = c.getString(TAG_NAME);
-                    String api = c.getString(TAG_API);
+                String str_perPage = resultsPage_obj.getString(TAG_PERPAGE);
 
-                    // Adding value HashMap key => value
+                String str_page = resultsPage_obj.getString(TAG_PAGE);
 
-                    HashMap<String, String> map = new HashMap<String, String>();
+                String str_totalEntries = resultsPage_obj.getString(TAG_TOTALENTRIES);
 
-                    map.put(TAG_VER, ver);
-                    map.put(TAG_NAME, name);
-                    map.put(TAG_API, api);
+                JSONObject results_obj = resultsPage_obj.getJSONObject(TAG_RESULTS);
 
-                    oslist.add(map);
-                    list = (ListView) findViewById(R.id.list);
+                JSONArray event = results_obj.getJSONArray(TAG_EVENT);
+                for (int event_i = 0; event_i < event.length(); event_i++) {
+                    JSONObject event_obj = event.getJSONObject(event_i);
+                    JSONObject venue_obj = event_obj.getJSONObject(TAG_VENUE);
 
-                    ListAdapter adapter = new SimpleAdapter(MainActivity.this, oslist,
-                            R.layout.list_item,
-                            new String[]{TAG_VER, TAG_NAME, TAG_API}, new int[]{
-                            R.id.vers, R.id.name, R.id.api});
+                    String str_lng = venue_obj.getString(TAG_LNG);
 
-                    list.setAdapter(adapter);
-                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    String str_displayName = venue_obj.getString(TAG_DISPLAYNAME);
 
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view,
-                                                int position, long id) {
-                            Toast.makeText(MainActivity.this, "You Clicked at " + oslist.get(+position).get("name"), Toast.LENGTH_SHORT).show();
+                    JSONObject metroArea_obj = venue_obj.getJSONObject(TAG_METROAREA);
 
+                    JSONObject country_obj = metroArea_obj.getJSONObject(TAG_COUNTRY);
+
+                    String str_country_obj_displayName = country_obj.getString(TAG_COUNTRY_OBJ_DISPLAYNAME);
+
+                    String str_metroArea_obj_displayName = metroArea_obj.getString(TAG_METROAREA_OBJ_DISPLAYNAME);
+
+                    String str_id = metroArea_obj.getString(TAG_ID);
+
+                    String str_uri = metroArea_obj.getString(TAG_URI);
+
+                    String str_venue_obj_id = venue_obj.getString(TAG_VENUE_OBJ_ID);
+
+                    String str_venue_obj_uri = venue_obj.getString(TAG_VENUE_OBJ_URI);
+
+                    String str_lat = venue_obj.getString(TAG_LAT);
+
+                    JSONArray performance = event_obj.getJSONArray(TAG_PERFORMANCE);
+                    for (int performance_i = 0; performance_i < performance.length(); performance_i++) {
+                        JSONObject performance_obj = performance.getJSONObject(performance_i);
+                        JSONObject artist_obj = performance_obj.getJSONObject(TAG_ARTIST);
+
+                        JSONArray identifier = artist_obj.getJSONArray(TAG_IDENTIFIER);
+                        for (int identifier_i = 0; identifier_i < identifier.length(); identifier_i++) {
+                            JSONObject identifier_obj = identifier.getJSONObject(identifier_i);
+                            String str_mbid = identifier_obj.getString(TAG_MBID);
+
+                            String str_href = identifier_obj.getString(TAG_HREF);
                         }
-                    });
+                        String str_artist_obj_displayName = artist_obj.getString(TAG_ARTIST_OBJ_DISPLAYNAME);
+
+                        String str_artist_obj_id = artist_obj.getString(TAG_ARTIST_OBJ_ID);
+
+                        String str_artist_obj_uri = artist_obj.getString(TAG_ARTIST_OBJ_URI);
+
+                        String str_performance_obj_displayName = performance_obj.getString(TAG_PERFORMANCE_OBJ_DISPLAYNAME);
+
+                        String str_billingIndex = performance_obj.getString(TAG_BILLINGINDEX);
+
+                        String str_performance_obj_id = performance_obj.getString(TAG_PERFORMANCE_OBJ_ID);
+
+                        String str_billing = performance_obj.getString(TAG_BILLING);
+
+                    }
+                    String str_event_obj_displayName = event_obj.getString(TAG_EVENT_OBJ_DISPLAYNAME);
+
+                    // Have to keep these three lines of code underneath the JSON object/array/string that is to be parsed.
+                    // While leaving the rest of the list code after the catch JSONException
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put(TAG_EVENT_OBJ_DISPLAYNAME, str_event_obj_displayName);
+                    oslist.add(map);
+
+                    String str_popularity = event_obj.getString(TAG_POPULARITY);
+
+                    JSONObject start_obj = event_obj.getJSONObject(TAG_START);
+
+                    String str_date = start_obj.getString(TAG_DATE);
+
+                    String str_datetime = start_obj.getString(TAG_DATETIME);
+
+                    String str_time = start_obj.getString(TAG_TIME);
+
+                    String str_ageRestriction = event_obj.getString(TAG_AGERESTRICTION);
+
+                    JSONObject location_obj = event_obj.getJSONObject(TAG_LOCATION);
+
+                    String str_location_obj_lng = location_obj.getString(TAG_LOCATION_OBJ_LNG);
+
+                    String str_city = location_obj.getString(TAG_CITY);
+
+                    String str_location_obj_lat = location_obj.getString(TAG_LOCATION_OBJ_LAT);
+
+                    String str_event_obj_id = event_obj.getString(TAG_EVENT_OBJ_ID);
+
+                    String str_type = event_obj.getString(TAG_TYPE);
+
+                    String str_event_obj_uri = event_obj.getString(TAG_EVENT_OBJ_URI);
+
+                    String str_status = event_obj.getString(TAG_STATUS);
 
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                String str_resultsPage_obj_status = resultsPage_obj.getString(TAG_RESULTSPAGE_OBJ_STATUS);
+
+
             }
+            catch (JSONException e) {}
 
+// Adding value HashMap key => value
+//
+//            HashMap<String, String> map = new HashMap<String, String>();
+//
+//            map.put(TAG_EVENT_OBJ_DISPLAYNAME, str_event_obj_displayName);
+
+//            oslist.add(map);
+            list = (ListView) findViewById(R.id.list);
+
+            ListAdapter adapter = new SimpleAdapter(MainActivity.this, oslist, R.layout.list_item, new String[]{TAG_EVENT_OBJ_DISPLAYNAME}, new int[]{R.id.name});
+
+            list.setAdapter(adapter);
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    Toast.makeText(MainActivity.this, "You Clicked at " + oslist.get(+position).get(TAG_EVENT_OBJ_DISPLAYNAME), Toast.LENGTH_SHORT).show();
+
+                }
+            });
         }
-
-
-//
-//        @Override
-//        protected Void doInBackground(Void... arg0) {
-//            // Creating service handler class instance
-//            ServiceHandler sh = new ServiceHandler();
-//
-//            // Making a request to url and getting response
-//            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
-//
-//            Log.d("Response: ", "> " + jsonStr);
-//
-//            if (jsonStr != null) {
-//                try {
-//                    JSONObject jsonObj = new JSONObject(jsonStr);
-//
-//                    JSONObject resultsPage = jsonObj.getJSONObject(TAG_RESULTSPAGE);
-//                    JSONObject results = resultsPage.getJSONObject(TAG_RESULTS);
-//                    // Getting JSON Array node
-//
-//                    events = results.getJSONArray(TAG_EVENTS);
-//
-//
-//                    for (int i = 0; i < events.length(); i++) {
-//                        JSONObject c = events.getJSONObject(i);
-//
-//                        String id = c.getString(TAG_ID);
-//                        String type = c.getString(TAG_TYPE);
-//                        String uri = c.getString(TAG_URI);
-//                        String name = c.getString(TAG_DISPLAYNAME);
-//                        //Log.d("MainActivity", "informations : " + id + " " + type + " " + uri + " " + name);
-//
-//                        // Start node is JSON Object
-//                        JSONObject start = c.getJSONObject(TAG_START);
-//                        String start_time = start.getString(TAG_START_TIME);
-//
-//                        /*Modifie le format de l'heure affiché (ex : 20H30)*/
-//                        if (start_time == "null")
-//                            start_time = "NC";
-//                        else
-//                        {
-//                            String[] parts_time = start_time.split(":");
-//                            String part_heures = parts_time[0];
-//                            String part_minutes = parts_time[1];
-//                            start_time = part_heures + "H" + part_minutes;
-//                        }
-//
-//                        String start_date = start.getString(TAG_START_DATE);
-//
-//
-//                        /*Modifie le format de la date affiché (ex : 12/02/2015)*/
-//                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//                        Date date = null;
-//                        try
-//                        {
-//                            date = formatter.parse(start_date);
-//                        } catch (Exception e) //ParseException
-//                        {
-//                            e.printStackTrace();
-//                        }
-//                        start_date = new SimpleDateFormat("dd/MM/yyyy").format(date);
-//
-//
-//                        // Performance node is JSON Object
-//                        // JSONObject performance = c.getJSONObject(TAG_PERFORMANCE);
-//                        JSONArray Arrayperformance = c.getJSONArray(TAG_PERFORMANCE);
-//                        JSONObject Operformance = Arrayperformance.getJSONObject(0);
-//                        String performance_name = Operformance.getString(TAG_PERFORMANCE_NAME);
-//                        String prix = Operformance.getString(TAG_PRICE);
-//
-//                        // Location node is JSON Object
-//                        JSONObject location = c.getJSONObject(TAG_LOCATION);
-//                        String city = location.getString(TAG_LOCATION_CITY);
-//
-//
-//                        // Location node is JSON Object
-//                        JSONObject venue = c.getJSONObject(TAG_VENUE);
-//                        String venue_name = venue.getString(TAG_VENUE_NAME);
-//                        String longitude = venue.getString(TAG_LONGITUDE);
-//                        String latitude = venue.getString(TAG_LATITUDE);
-//
-//                        String status = c.getString(TAG_STATUS);
-//
-//                        // tmp hashmap for single event
-//                        HashMap<String, String> event = new HashMap<String, String>();
-//
-//                        // adding each child node to HashMap key => value
-//                        String address = venue_name + ", " + city;
-//
-//                        if (status.equals("ok"))
-//                            status = "";
-//                        else
-//                            status = "Annulé";
-//
-//
-//                        String[] parts_name = name.split("\\(");
-//                        name = parts_name[0];
-//
-//                        event.put(TAG_ID, id);
-//                        event.put(TAG_EVENT_NAME, name);
-//                        event.put(TAG_VENUE, address);
-//                        event.put(TAG_PERFORMANCE_NAME, performance_name);
-//                        event.put(TAG_START_TIME, start_time);
-//                        event.put(TAG_START_DATE, start_date);
-//                        event.put(TAG_TYPE, type);
-//                        event.put(TAG_STATUS, status);
-//
-//                        event.put(TAG_LOCATION_CITY, city);
-//                        event.put(TAG_LONGITUDE, longitude);
-//                        event.put(TAG_LATITUDE, latitude);
-//                        event.put(TAG_PRICE, prix);
-//
-//                        Log.d("TEST", "TAG_DISPLAYNAME " + event.get("TAG_DISPLAYNAME"));
-//                        Log.d("TEST", "TAG_VENUE_NAME " + event.get("TAG_VENUE_NAME"));
-//                        Log.d("TEST", "TAG_PERFORMANCE_NAME " + event.get("TAG_PERFORMANCE_NAME"));
-//
-//                        // adding contact to contact list
-//                        eventList.add(event);
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            } else {
-//                Log.e("ServiceHandler", "Couldn't get any data from the url");
-//            }
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void result) {
-//            super.onPostExecute(result);
-//            // Dismiss the progress dialog
-//            if (pDialog.isShowing())
-//                pDialog.dismiss();
-//            /**
-//             * Updating parsed JSON data into ListView
-//             * */
-//            ListAdapter adapter = new SimpleAdapter(
-//                    MainActivity.this, eventList, R.layout.list_item, new String[]{TAG_EVENT_NAME,
-//                    TAG_VENUE, TAG_PERFORMANCE_NAME, TAG_START_DATE, TAG_START_TIME, TAG_TYPE,
-//                    TAG_STATUS, TAG_LOCATION_CITY, TAG_LONGITUDE, TAG_LATITUDE, TAG_PRICE},
-//                    new int[]{R.id.name, R.id.venue_name, R.id.performance_name, R.id.start_date,
-//                            R.id.start_time, R.id.type, R.id.status, R.id.city, R.id.longitude, R.id.latitude, R.id.price});
-//
-//
-//
-//            setListAdapter(adapter);
-//        }
-//
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds i-tems to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.menu_main, menu);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
             return true;
         }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
-
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
-        }
-
-        public void gotoBrowseByDate(View view) {
-            Intent intent = new Intent(this, BrowseByDateAndLocationActivity.class);
-            startActivity(intent);
-        }
-
-        public void gotoSearchFestivals(View view) {
-            Intent intent = new Intent(this, SearchFestivals.class);
-            startActivity(intent);
-        }
-
-        public void gotoFindFestivalsByArtist(View view) {
-            Intent intent = new Intent(this, FindFestivalsByArtist.class);
-            startActivity(intent);
-        }
+        return super.onOptionsItemSelected(item);
     }
+
+    public void gotoBrowseByDate(View view) {
+        Intent intent = new Intent(this, BrowseByDateAndLocationActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSearchFestivals(View view) {
+        Intent intent = new Intent(this, SearchFestivals.class);
+        startActivity(intent);
+    }
+
+    public void gotoFindFestivalsByArtist(View view) {
+        Intent intent = new Intent(this, FindFestivalsByArtist.class);
+        startActivity(intent);
+    }
+}
