@@ -210,8 +210,8 @@ public class FindFestivalsByArtist extends AppCompatActivity {
                     //Toast.makeText(FindFestivalsByArtist.this, "You Clicked at " + oslist.get(+position).get(TAG_DISPLAYNAME), Toast.LENGTH_SHORT).show();
 
 
-                    Intent intent = new Intent(FindFestivalsByArtist.this, FindFestivalsByArtistDetails.class);
-
+                    Intent intent = new Intent(getApplicationContext(), FindFestivalsByArtistDetails.class);
+                    intent.putExtra("new_variable_name", oslist.get(+position).get(TAG_ID));
                     startActivity(intent);
                 }
             });
