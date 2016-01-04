@@ -8,6 +8,9 @@
     <string name="browseFestivals">Browse Festivals by Date and Location</string>
     <string name="searchFestivals">Search Festivals</string>
     <string name="findFestivalsByArtist">Find Festivals by Artist</string>
+
+    <string name= "title_activity_find_festivals_by_artist_details">FindFestivalsByArtistDetails</string>
+
     <string name="upcomingFestivals">Upcoming Festivals</string>
     <string name="title_activity_browse_by_date_and_location">BrowseByDateAndLocationActivity</string>
     <string name="title_search_festivals">SearchFestivals</string>
@@ -75,4 +78,5 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
     <string name="search_artist_hint">Search for artist</string>
+
 </resources>

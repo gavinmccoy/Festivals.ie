@@ -44,6 +44,7 @@ public class FindFestivalsByArtist extends AppCompatActivity {
     EditText editText;
     ListView list = null;
     TextView name;
+    TextView id;
     Button Btngetdata;
     ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();
 
@@ -108,6 +109,7 @@ public class FindFestivalsByArtist extends AppCompatActivity {
             super.onPreExecute();
             //ver = (TextView) findViewById(R.id.vers);
             name = (TextView) findViewById(R.id.name);
+            id = (TextView) findViewById(R.id.id);
             //api = (TextView) findViewById(R.id.api);
 
             pDialog = new ProgressDialog(FindFestivalsByArtist.this);
@@ -171,11 +173,15 @@ public class FindFestivalsByArtist extends AppCompatActivity {
                     String str_displayName = artist_obj.getString(TAG_DISPLAYNAME);
 
                     HashMap<String, String> map = new HashMap<String, String>();
+
                     map.put(TAG_DISPLAYNAME, str_displayName);
-                    oslist.add(map);
+
 
                     String str_id = artist_obj.getString(TAG_ID);
 
+                    map.put(TAG_ID, str_id);
+
+                    oslist.add(map);
 
 
                     String str_uri = artist_obj.getString(TAG_URI);
@@ -189,21 +195,24 @@ public class FindFestivalsByArtist extends AppCompatActivity {
 //            HashMap<String, String> map = new HashMap<String, String>();
 //
 //            map.put(TAG_EVENT_OBJ_DISPLAYNAME, str_event_obj_displayName);
-
+//
 //            oslist.add(map);
 
             list = (ListView) findViewById(R.id.list);
 
-            ListAdapter adapter = new SimpleAdapter(FindFestivalsByArtist.this, oslist, R.layout.list_item, new String[]{TAG_DISPLAYNAME}, new int[]{R.id.name});
+            ListAdapter adapter = new SimpleAdapter(FindFestivalsByArtist.this, oslist, R.layout.list_item, new String[]{TAG_DISPLAYNAME, TAG_ID}, new int[]{R.id.name, R.id.id});
 
             list.setAdapter(adapter);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-                    Toast.makeText(FindFestivalsByArtist.this, "You Clicked at " + oslist.get(+position).get(TAG_DISPLAYNAME), Toast.LENGTH_SHORT).show();
+                public void onItemClick(AdapterView<?> parent, View view,  int position, long id) {
+                    //Toast.makeText(FindFestivalsByArtist.this, "You Clicked at " + oslist.get(+position).get(TAG_DISPLAYNAME), Toast.LENGTH_SHORT).show();
 
+
+                    Intent intent = new Intent(FindFestivalsByArtist.this, FindFestivalsByArtistDetails.class);
+
+                    startActivity(intent);
                 }
             });
         }

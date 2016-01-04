@@ -36,6 +36,11 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".FindFestivalsByArtistDetails"
+            android:label="@string/title_activity_find_festivals_by_artist_details"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
