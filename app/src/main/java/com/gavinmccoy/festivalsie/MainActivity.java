@@ -275,10 +275,14 @@ public class MainActivity extends AppCompatActivity {
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-                    Toast.makeText(MainActivity.this, "You Clicked at " + oslist.get(+position).get(TAG_EVENT_OBJ_DISPLAYNAME), Toast.LENGTH_SHORT).show();
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //Toast.makeText(MainActivity.this, "You Clicked at " + oslist.get(+position).get(TAG_EVENT_OBJ_DISPLAYNAME), Toast.LENGTH_SHORT).show();
 
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, oslist.get(+position).get(TAG_EVENT_OBJ_DISPLAYNAME) + " is happening! Who's going? \n\n #Festivals.ie #Songkick");
+                    startActivity(Intent.createChooser(shareIntent, "Share this event"));
                 }
             });
         }

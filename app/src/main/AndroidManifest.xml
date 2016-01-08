@@ -26,8 +26,18 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".BrowseByDateAndLocationDetails"
+            android:label="@string/title_activity_browse_by_date_and_location_details"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".SearchFestivals"
             android:label="@string/title_search_festivals"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".SearchFestivalsDetails"
+            android:label="@string/title_search_festivals_details"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity

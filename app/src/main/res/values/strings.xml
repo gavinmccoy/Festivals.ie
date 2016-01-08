@@ -5,13 +5,13 @@
 
     <!-- MainActivty Strings-->
     <string name="festivals">Festivals.ie</string>
-    <string name="browseFestivals">Browse Festivals by Date and Location</string>
-    <string name="searchFestivals">Search Festivals</string>
-    <string name="findFestivalsByArtist">Find Festivals by Artist</string>
+    <string name="browseFestivals">Metro Area’s Upcoming Events </string>
+    <string name="searchFestivals">Venue’s Upcoming Events</string>
+    <string name="findFestivalsByArtist">Artist’s Upcoming Events</string>
 
     <string name= "title_activity_find_festivals_by_artist_details">FindFestivalsByArtistDetails</string>
 
-    <string name="upcomingFestivals">Upcoming Festivals</string>
+    <string name="upcomingFestivals">Upcoming Events Near You</string>
     <string name="title_activity_browse_by_date_and_location">BrowseByDateAndLocationActivity</string>
     <string name="title_search_festivals">SearchFestivals</string>
     <string name="title_activity_find_festivals_by_artist">FindFestivalsByArtist</string>
@@ -78,5 +78,7 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
     <string name="search_artist_hint">Search for artist</string>
+    <string name="title_search_festivals_details">Search Festivals</string>
+    <string name="title_activity_browse_by_date_and_location_details">Browse By Date And Location Details</string>
 
 </resources>
