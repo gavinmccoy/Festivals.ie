@@ -43,6 +43,7 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
 
     EditText editText;
     ListView list = null;
+    TextView ver;
     TextView name;
     TextView id;
     Button Btngetdata;
@@ -117,7 +118,7 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //ver = (TextView) findViewById(R.id.vers);
+            ver = (TextView) findViewById(R.id.vers);
             name = (TextView) findViewById(R.id.name);
             id = (TextView) findViewById(R.id.id);
             //api = (TextView) findViewById(R.id.api);
@@ -165,22 +166,30 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
                 JSONObject results_obj = resultsPage_obj.getJSONObject(TAG_RESULTS);
 
                 JSONArray location = results_obj.getJSONArray(TAG_LOCATION);
+
                 for(int location_i = 0; location_i < location.length(); location_i++){
                     JSONObject location_obj=location.getJSONObject(location_i);
                     JSONObject city_obj = location_obj.getJSONObject(TAG_CITY);
 
                     JSONObject country_obj = city_obj.getJSONObject(TAG_COUNTRY);
 
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put(TAG_COUNTRY, country_obj.toString().replace("{\"displayName\":\"", "").replace("\"}", ""));//.replace("displayName", "").replace("{", "").replace("}", ""));
+
                     String str_displayName = country_obj.getString(TAG_DISPLAYNAME);
+
 
 
                     String str_lng = city_obj.getString(TAG_LNG);
 
                     String str_city_obj_displayName = city_obj.getString(TAG_CITY_OBJ_DISPLAYNAME);
 
-                    JSONObject state_obj = city_obj.getJSONObject(TAG_STATE);
 
-                    String str_state_obj_displayName = state_obj.getString(TAG_STATE_OBJ_DISPLAYNAME);
+                    //JSONObject state_obj = city_obj.getJSONObject(TAG_STATE);
+
+
+
+                    //String str_state_obj_displayName = state_obj.getString(TAG_STATE_OBJ_DISPLAYNAME);
 
                     String str_lat = city_obj.getString(TAG_LAT);
 
@@ -194,18 +203,17 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
 
                     String str_metroArea_obj_displayName = metroArea_obj.getString(TAG_METROAREA_OBJ_DISPLAYNAME);
 
-                    HashMap<String, String> map = new HashMap<String, String>();
-
                     map.put(TAG_METROAREA_OBJ_DISPLAYNAME, str_metroArea_obj_displayName);
+                    //JSONObject metroArea_obj_state_obj = metroArea_obj.getJSONObject(TAG_METROAREA_OBJ_STATE);
 
-                    JSONObject metroArea_obj_state_obj = metroArea_obj.getJSONObject(TAG_METROAREA_OBJ_STATE);
+                    //String str_metroArea_obj_state_obj_displayName = metroArea_obj_state_obj.getString(TAG_METROAREA_OBJ_STATE_OBJ_DISPLAYNAME);
 
-                    String str_metroArea_obj_state_obj_displayName = metroArea_obj_state_obj.getString(TAG_METROAREA_OBJ_STATE_OBJ_DISPLAYNAME);
 
                     String str_id = metroArea_obj.getString(TAG_ID);
-                    map.put(TAG_ID, str_id);
 
+                    map.put(TAG_ID, str_id);
                     oslist.add(map);
+
 
                     String str_uri = metroArea_obj.getString(TAG_URI);
 
@@ -214,7 +222,7 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
                 }
                 String str_status = resultsPage_obj.getString(TAG_STATUS);
 
-            } catch (JSONException e){}
+            } catch (JSONException e){System.out.println(e);}
 // Adding value HashMap key => value
 //
 //            HashMap<String, String> map = new HashMap<String, String>();
@@ -225,7 +233,15 @@ public class BrowseByDateAndLocationActivity extends AppCompatActivity {
 
             list = (ListView) findViewById(R.id.list);
 
-            ListAdapter adapter = new SimpleAdapter(BrowseByDateAndLocationActivity.this, oslist, R.layout.list_item, new String[]{TAG_METROAREA_OBJ_DISPLAYNAME, TAG_ID}, new int[]{R.id.name, R.id.id});
+            ListAdapter adapter = new SimpleAdapter(BrowseByDateAndLocationActivity.this, oslist, R.layout.list_item, new String[]{
+                    TAG_METROAREA_OBJ_DISPLAYNAME,
+                    TAG_COUNTRY
+                    //,TAG_ID
+            }, new int[]{
+                    R.id.vers,
+                    R.id.name
+                    //,R.id.id
+            });
 
             list.setAdapter(adapter);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

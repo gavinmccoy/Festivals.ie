@@ -45,6 +45,7 @@ public class FindFestivalsByArtist extends AppCompatActivity {
     ListView list = null;
     TextView name;
     TextView id;
+    ImageView img;
     Button Btngetdata;
     ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();
 
