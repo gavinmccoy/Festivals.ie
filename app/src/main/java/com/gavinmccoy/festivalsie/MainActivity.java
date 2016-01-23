@@ -284,8 +284,10 @@ public class MainActivity extends AppCompatActivity {
                     shareIntent.putExtra(Intent.EXTRA_TEXT, oslist.get(+position).get(TAG_EVENT_OBJ_DISPLAYNAME) + " is happening! Who's going? \n\n #Festivals.ie #Songkick");
                     startActivity(Intent.createChooser(shareIntent, "Share this event"));
                 }
-            });
-        }
+            });}
+
+
+
     }
 
 
@@ -323,6 +325,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoFindFestivalsByArtist(View view) {
         Intent intent = new Intent(this, FindFestivalsByArtist.class);
+        startActivity(intent);
+    }
+
+    public void gotoGigRecommender(View view) {
+        Intent intent = new Intent(this, GigRecommender.class);
         startActivity(intent);
     }
 }

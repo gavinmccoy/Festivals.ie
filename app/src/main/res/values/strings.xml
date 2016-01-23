@@ -80,5 +80,8 @@
     <string name="search_artist_hint">Search for artist</string>
     <string name="title_search_festivals_details">Search Festivals</string>
     <string name="title_activity_browse_by_date_and_location_details">Browse By Date And Location Details</string>
+    <string name="title_activity_gig_recommender">Gig Recommender</string>
+    <string name="gigRecommender">Gig Recommender</string>
+    <string name="title_activity_gig_recommender_details">Gig Recommender Details</string>
 
 </resources>

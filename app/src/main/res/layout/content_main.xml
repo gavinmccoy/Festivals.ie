@@ -41,6 +41,15 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/gigRecommender"
+        android:text="@string/gigRecommender"
+        android:fontFamily="normal"
+        android:textStyle="bold"
+        android:onClick="gotoGigRecommender"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/getdata"
         android:text="@string/upcomingFestivals"
         android:fontFamily="normal"
