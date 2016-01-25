@@ -13,47 +13,134 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/browseFestivals"-->
+        <!--android:text="@string/browseFestivals"-->
+        <!--android:fontFamily="normal"-->
+        <!--android:textStyle="bold"-->
+        <!--android:onClick="gotoBrowseByDate"/>-->
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/browseFestivals"
-        android:text="@string/browseFestivals"
-        android:fontFamily="normal"
+
+        android:text="Metro Area's Upcoming Events"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:onClick="gotoBrowseByDate"/>
-    <Button
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:onClick="gotoBrowseByDate"
+        />
+    <Button
+
         android:id="@+id/searchFestivals"
         android:text="@string/searchFestivals"
+        android:onClick="gotoSearchFestivals"
+
         android:fontFamily="normal"
         android:textStyle="bold"
-        android:onClick="gotoSearchFestivals"/>
-    <Button
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+
+        />
+    <Button
         android:id="@+id/findFestivalsByArtist"
         android:text="@string/findFestivalsByArtist"
+        android:onClick="gotoFindFestivalsByArtist"
+
         android:fontFamily="normal"
         android:textStyle="bold"
-        android:onClick="gotoFindFestivalsByArtist"
-        />
-    <Button
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+    <Button
         android:id="@+id/gigRecommender"
         android:text="@string/gigRecommender"
+        android:onClick="gotoGigRecommender"
+
         android:fontFamily="normal"
         android:textStyle="bold"
-        android:onClick="gotoGigRecommender"
-        />
-    <Button
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+    <Button
+        android:id="@+id/artistGigography"
+        android:text="@string/artistGigography"
+        android:onClick="gotoArtistGigography"
+
+        android:fontFamily="normal"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+    <Button
         android:id="@+id/getdata"
         android:text="@string/upcomingFestivals"
+        android:onClick="gotoUpcomingFestivalsDetails"
+
         android:fontFamily="normal"
-        android:textStyle="italic"/>
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+
+    <Button
+        android:id="@+id/musicPlayer"
+        android:text="@string/musicPlayer"
+
+        android:fontFamily="normal"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A288"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -9,6 +9,8 @@
         android:id="@+id/vers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#9B9CA1"
+        android:textSize="18sp"
         />
 
 
@@ -16,18 +18,24 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#9B9CA1"
+        android:textSize="18sp"
         />
 
     <TextView
         android:id="@+id/id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#9B9CA1"
+        android:textSize="18sp"
         />
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#9B9CA1"
+        android:textSize="18sp"
         />
 <!--
     <TextView

@@ -1,6 +1,7 @@
 package com.gavinmccoy.festivalsie;
 
 import android.app.ListActivity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -103,23 +104,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         oslist = new ArrayList<HashMap<String, String>>();
-
-        Btngetdata = (Button) findViewById(R.id.getdata);
-        Btngetdata.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                new JSONParse().execute();
-
-            }
-        });
+//
+//        Btngetdata = (Button) findViewById(R.id.getdata);
+//        Btngetdata.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                new JSONParse().execute();
+//
+//            }
+//        });
     }
+
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
         private ProgressDialog pDialog;
@@ -301,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up buttonshape, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
@@ -332,4 +335,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GigRecommender.class);
         startActivity(intent);
     }
+
+
+    public void gotoArtistGigography(View view) {
+        Intent intent = new Intent(this, ArtistGigography.class);
+        startActivity(intent);
+    }
+
+    public void gotoUpcomingFestivalsDetails(View view) {
+        Intent intent = new Intent(this, UpcomingFestivalsDetails.class);
+        startActivity(intent);
+    }
+
 }

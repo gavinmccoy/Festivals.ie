@@ -201,7 +201,11 @@ public class FindFestivalsByArtist extends AppCompatActivity {
 
             list = (ListView) findViewById(R.id.list);
 
-            ListAdapter adapter = new SimpleAdapter(FindFestivalsByArtist.this, oslist, R.layout.list_item, new String[]{TAG_DISPLAYNAME, TAG_ID}, new int[]{R.id.name, R.id.id});
+            ListAdapter adapter = new SimpleAdapter(FindFestivalsByArtist.this, oslist, R.layout.list_item, new String[]{TAG_DISPLAYNAME
+            //        , TAG_ID
+            }, new int[]{R.id.name
+            //        , R.id.id
+            });
 
             list.setAdapter(adapter);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -230,7 +234,7 @@ public class FindFestivalsByArtist extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up buttonshape, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 

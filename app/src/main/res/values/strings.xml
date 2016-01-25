@@ -19,6 +19,8 @@
 
     <string name="search_title">Search</string>
 
+    <string name="musicPlayer">Music Player</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
@@ -83,5 +85,8 @@
     <string name="title_activity_gig_recommender">Gig Recommender</string>
     <string name="gigRecommender">Gig Recommender</string>
     <string name="title_activity_gig_recommender_details">Gig Recommender Details</string>
+    <string name="title_activity_artist_gigography_details">Artist Gigography Details</string>
+    <string name="title_activity_artist_gigography">Artist Gigography</string>
+    <string name="artistGigography">Artist Gigography</string>
 
 </resources>
