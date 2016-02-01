@@ -88,5 +88,6 @@
     <string name="title_activity_artist_gigography_details">Artist Gigography Details</string>
     <string name="title_activity_artist_gigography">Artist Gigography</string>
     <string name="artistGigography">Artist Gigography</string>
+    <string name="setList">Set List</string>
 
 </resources>

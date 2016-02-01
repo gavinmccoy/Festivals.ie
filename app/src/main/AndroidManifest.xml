@@ -87,9 +87,19 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".SetList"
+            android:label="@string/setList"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+
+
+        <service android:name="com.example.musicplayer.MusicService" />
     </application>
 
 
@@ -108,6 +118,8 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 
 </manifest>

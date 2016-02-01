@@ -108,26 +108,11 @@
         android:shadowDy="0"
         android:shadowRadius="5"
         />
-    <Button
-        android:id="@+id/getdata"
-        android:text="@string/upcomingFestivals"
-        android:onClick="gotoUpcomingFestivalsDetails"
-
-        android:fontFamily="normal"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#A8A288"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
 
     <Button
         android:id="@+id/musicPlayer"
         android:text="@string/musicPlayer"
+        android:onClick="gotoMusicActivtity"
 
         android:fontFamily="normal"
         android:textStyle="bold"
@@ -141,6 +126,19 @@
         android:shadowDy="0"
         android:shadowRadius="5"/>
 
+    <Button
+    android:id="@+id/getdata"
+    android:text="Tap event to share it\n\nLongclick it to bring it up on Maps"
+    android:fontFamily="normal"
+    android:textStyle="bold"
+    android:textColor="#4e87e1"
+    android:textSize="10sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/buttonshapecontrast"
+    android:shadowDx="0"
+    android:shadowDy="0"
+    android:shadowRadius="5"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

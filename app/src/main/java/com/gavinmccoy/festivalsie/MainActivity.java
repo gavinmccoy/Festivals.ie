@@ -3,6 +3,7 @@ package com.gavinmccoy.festivalsie;
 import android.app.ListActivity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -342,9 +343,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void gotoUpcomingFestivalsDetails(View view) {
-        Intent intent = new Intent(this, UpcomingFestivalsDetails.class);
+//    public void gotoUpcomingFestivalsDetails(View view) {
+//        Intent intent = new Intent(this, UpcomingFestivalsDetails.class);
+//        startActivity(intent);
+//    }
+
+    public void gotoMusicActivtity(View view) {
+        Intent intent = new Intent(MediaStore.INTENT_ACTION_MUSIC_PLAYER);
         startActivity(intent);
     }
-
 }
